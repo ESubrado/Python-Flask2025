@@ -21,7 +21,6 @@ def home():
     return "This is the first flask api."
 
 #For Store
-
 @app.get("/store") #http://127.0.0.1:5000/store
 def get_stores():
     return {"stores": stores}
@@ -53,10 +52,10 @@ def get_item(name):
 
 
 @app.get("/store/<string:name>/item")
-def get_item(name):    
+def get_item_in_store(name):    
     for store in stores:
         if(store["name"]) == name:           
-            return {"items" : store["items"]} #suggested to return data in dictionary form, not list
+            return {"items" : store["items"], "message": "You Rock!!"} #suggested to return data in dictionary form, not list
     return {"message": "Store not found"}, 404
 
 
